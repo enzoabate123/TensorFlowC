@@ -1,3 +1,6 @@
+# Refactoring Strategy: Core Platform & Utilities (Part 3 of 10)
+
+## Action Plan
 # Refactoring Strategy: Core Platform & Utilities (Part 1 of 10)
 
 ## Current Status
