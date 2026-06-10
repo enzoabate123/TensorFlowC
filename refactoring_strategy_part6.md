@@ -1,13 +1,10 @@
-# Refactoring Strategy: Core Platform & Utilities (Part 3 of 10)
-
-## Action Plan
-# Refactoring Strategy: Core Platform & Utilities (Part 1 of 10)
+# Refactoring Strategy: Core Platform & Utilities (Part 6 of 10)
 
 ## Current Status
-An initial analysis of the repository shows that there are currently **no C++ source files** (`*.cc`, `*.cpp`, `*.h`, `*.hpp`) present in this submodule. The workspace only contains the refactoring plan documents (`TENSORFLOW_C_REWRITE_PLAN.md`, `README.md`) and a script (`generate_plan.py`).
+An initial analysis of the repository shows that there are currently **no C++ source files** (`*.cc`, `*.cpp`, `*.h`, `*.hpp`) present in this submodule. The workspace only contains the refactoring plan documents (`TENSORFLOW_C_REWRITE_PLAN.md`, `README.md`), a script (`generate_plan.py`), and some base C files for strings and vectors.
 
 ## Action Plan (Once files are available)
-When the C++ files for the Core Platform & Utilities are added, the following strict refactoring rules will be applied to rewrite the codebase to strict C99/C11:
+When the C++ files for the Core Platform & Utilities (Part 6) are added, the following strict refactoring rules will be applied to rewrite the codebase to strict C99/C11:
 
 1. **Remove Object-Oriented Paradigms**:
    - Classes, templates, and inheritance will be completely removed.
@@ -15,7 +12,7 @@ When the C++ files for the Core Platform & Utilities are added, the following st
 
 2. **Function Signatures**:
    - Class methods will be replaced by C functions.
-   - The first argument of these functions will be a pointer to the respective `struct` (e.g., `MyStruct_method(MyStruct* self)`).
+   - The first argument of these functions will be a pointer to the respective `struct` (e.g., `Tensor_dim(Tensor* t)`).
 
 3. **Data Structures**:
    - Standard C++ library structures like `std::string` and `std::vector` will be replaced.
