@@ -1,10 +1,10 @@
-# Refactoring Strategy: Core Platform & Utilities (Part 4 of 10)
+# Refactoring Strategy: Core Platform & Utilities (Part 10 of 10)
 
 ## Current Status
-An initial analysis of the repository shows that there are currently **no C++ source files** (`*.cc`, `*.cpp`, `*.h`, `*.hpp`) present in this submodule. The workspace only contains the refactoring plan documents (`TENSORFLOW_C_REWRITE_PLAN.md`, `README.md`), a script (`generate_plan.py`), and some base C files for strings and vectors.
+An initial analysis of the repository shows that there are currently **no C++ source files** (`*.cc`, `*.cpp`, `*.h`, `*.hpp`) present in this submodule. The workspace only contains the refactoring plan documents (`TENSORFLOW_C_REWRITE_PLAN.md`, `README.md`), a script (`generate_plan.py`), and some base C files for strings and vectors (`tf_string.h`, `tf_string.c`, `tf_vector.h`, `tf_vector.c` and their tests).
 
 ## Action Plan (Once files are available)
-When the C++ files for the Core Platform & Utilities (Part 4) are added, the following strict refactoring rules will be applied to rewrite the codebase to strict C99/C11:
+When the C++ files for the Core Platform & Utilities (Part 10) are added, the following strict refactoring rules will be applied to rewrite the codebase to strict C99/C11:
 
 1. **Remove Object-Oriented Paradigms**:
    - Classes, templates, and inheritance will be completely removed.
@@ -16,7 +16,7 @@ When the C++ files for the Core Platform & Utilities (Part 4) are added, the fol
 
 3. **Data Structures**:
    - Standard C++ library structures like `std::string` and `std::vector` will be replaced.
-   - We will use manually managed C buffers, `char*`, and dynamically allocated arrays (`malloc`/`calloc`/`realloc`).
+   - We will use manually managed C buffers, `char*`, and dynamically allocated arrays (`malloc`/`calloc`/`realloc`). Or use the existing `TF_String` and `TF_Vector` implementations provided.
 
 4. **Memory Management**:
    - Smart pointers (`std::shared_ptr`, `std::unique_ptr`) will be eliminated.
