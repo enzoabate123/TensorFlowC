@@ -7,9 +7,12 @@ void TF_String_init(TF_String* str) {
     str->data = (char*)malloc(1);
     if (str->data) {
         str->data[0] = '\0';
+        str->size = 0;
+        str->capacity = 1;
+    } else {
+        str->size = 0;
+        str->capacity = 0;
     }
-    str->size = 0;
-    str->capacity = 1;
 }
 
 void TF_String_init_with_cstr(TF_String* str, const char* cstr) {
@@ -20,11 +23,14 @@ void TF_String_init_with_cstr(TF_String* str, const char* cstr) {
     }
 
     size_t len = strlen(cstr);
-    str->size = len;
-    str->capacity = len + 1;
-    str->data = (char*)malloc(str->capacity);
+    str->data = (char*)malloc(len + 1);
     if (str->data) {
-        memcpy(str->data, cstr, str->capacity);
+        memcpy(str->data, cstr, len + 1);
+        str->size = len;
+        str->capacity = len + 1;
+    } else {
+        str->size = 0;
+        str->capacity = 0;
     }
 }
 
