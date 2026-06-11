@@ -1,2 +1,5 @@
 test_tf_string
 test_tf_vector
+.venv/
+test_binary
+test_vector
